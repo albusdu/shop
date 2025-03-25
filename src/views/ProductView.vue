@@ -6,9 +6,11 @@ import { useCartStore } from '@/stores/cart'
 import type { Product } from '@/types/productTypes'
 import QuantityPicker from '@/elements/QuantityPicker.vue'
 import { ChevronLeft } from 'lucide-vue-next'
+import { useAlert } from '@/composables/useAlert'
 
 const route = useRoute()
 const cartStore = useCartStore()
+const { Alert } = useAlert()
 
 const { product, error, loading, fetchProduct } = useProduct()
 const quantity = ref(1)
@@ -25,6 +27,7 @@ onMounted(async () => {
 
 function addToCart(product: Product) {
   cartStore.addItem(product, quantity.value)
+  Alert.success('Product added to cart')
   quantity.value = 1
 }
 </script>
