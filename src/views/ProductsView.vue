@@ -1,25 +1,36 @@
+<script setup lang="ts">
+import { onMounted } from 'vue'
+import { useProducts } from '@/api/productsService'
+import { useCategories } from '@/api/categoriesService'
+import CategoriesMenu from '@/components/Products/CategoriesList.vue'
+import ProductsGrid from '@/components/Products/ProductsGrid.vue'
+
+const {
+  categories,
+  error: categoriesError,
+  loading: categoriesLoading,
+  fetchCategories,
+} = useCategories()
+const { products, error: productsError, loading: productsLoading, fetchProducts } = useProducts()
+
+onMounted(async () => {
+  await fetchCategories()
+  await fetchProducts()
+})
+</script>
+
 <template>
-  <div>
-    <h1 class="text-2xl font-bold mb-4">Products</h1>
-    <div class="grid grid-cols-3 gap-4">
-      <div v-for="product in products" :key="product.id" class="border p-4">
-        <h2 class="font-semibold">{{ product.name }}</h2>
-        <p>Price: ${{ product.price }}</p>
-        <RouterLink :to="'/shop/product/' + product.id" class="text-blue-500">
-          View Details
-        </RouterLink>
-      </div>
-    </div>
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8 space-y-5 py-8 min-h-screen">
+    <CategoriesMenu
+      :categories="categories ? categories.items : []"
+      :error="categoriesError"
+      :loading="categoriesLoading"
+    />
+    <ProductsGrid
+      :products="products ? products.items : []"
+      :error="productsError"
+      :loading="productsLoading"
+      :has-title="true"
+    />
   </div>
 </template>
-
-<script setup lang="ts">
-import { RouterLink } from 'vue-router'
-import { ref } from 'vue'
-
-const products = ref([
-  { id: 1, name: 'Laptop', price: 1000 },
-  { id: 2, name: 'Phone', price: 500 },
-  { id: 3, name: 'Headphones', price: 150 },
-])
-</script>

@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { defineProps, defineEmits } from 'vue'
-
 // This button is designed as a static,
 // memoized component for performance,
 // as it may be used (n times) on all products in a platform with static props after render.
@@ -66,7 +64,7 @@ const getButtonClasses = (props: ButtonWrapperProps): string[] => {
   }
 
   const classes = [
-    'flex items-center cursor-pointer',
+    'flex items-center justify-center cursor-pointer transition duration-200',
     props.rounded ? 'rounded-full' : 'rounded',
     bgClasses[props.backgroundColor || 'blue'],
     textClasses[props.textColor || 'white'],

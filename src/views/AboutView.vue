@@ -13,10 +13,11 @@ import { RouterLink } from 'vue-router'
       <h1
         class="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-800 tracking-tight mb-2 md:mb-4"
       >
-        Discover Our Collection
+        About Us
       </h1>
       <p class="text-lg sm:text-xl md:text-2xl text-gray-600 max-w-2xl">
-        Explore a wide range of high-quality products tailored just for you.
+        Learn more about our mission, values, and commitment to providing you with the best
+        experience possible.
       </p>
       <RouterLink to="/products">
         <StaticButton

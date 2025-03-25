@@ -3,9 +3,7 @@ import { RouterView } from 'vue-router'
 </script>
 
 <template>
-  <div>
-    <main class="container mx-auto">
-      <RouterView />
-    </main>
-  </div>
+  <main class="pt-[72px] md:pt-[80px]">
+    <RouterView />
+  </main>
 </template>
