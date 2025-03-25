@@ -54,13 +54,15 @@ function checkout() {
         <div
           v-for="(item, index) in cartStore.items"
           :key="item.product.id"
-          class="flex flex-col md:flex-row gap-4 bg-white p-4 rounded-lg shadow-md"
+          class="flex gap-4 bg-white p-4 rounded-lg shadow-md"
         >
-          <img
-            :src="item.product.hdThumbnailUrl"
-            :alt="item.product.name"
-            class="w-full md:w-24 h-24 object-cover rounded-md"
-          />
+          <div class="w-16 md:w-24 aspect-[2/3] flex-shrink-0">
+            <img
+              :src="item.product.hdThumbnailUrl"
+              :alt="item.product.name"
+              class="w-full h-full object-cover rounded-md"
+            />
+          </div>
 
           <div class="flex-1 flex flex-col justify-between">
             <div>
@@ -90,7 +92,7 @@ function checkout() {
                 cta
                 @click="cartStore.removeItem(item.product.id)"
               >
-                <Trash />
+                <Trash class="w-4 h-4 sm:w-5 sm:h-5" />
               </StaticButton>
             </div>
           </div>

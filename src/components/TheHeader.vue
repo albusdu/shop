@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { RouterLink } from 'vue-router'
-import { ShoppingCart, User, Search, Menu } from 'lucide-vue-next'
+import { ShoppingCart, User, Search, Menu, X } from 'lucide-vue-next'
 import { useCartStore } from '@/stores/cart'
 import { useAlert } from '@/composables/useAlert'
 
@@ -63,7 +63,7 @@ const toggleMobileMenu = () => {
           <li v-for="item in navigation" :key="item.link">
             <RouterLink
               :to="item.link"
-              class="text-gray-700 text-sm md:text-base font-medium hover:text-blue-600 transition-colors duration-200"
+              class="text-sm md:text-base font-medium hover:text-blue-600 duration-200"
               exact-active-class="font-bold text-blue-700"
             >
               {{ item.name }}
@@ -122,8 +122,7 @@ const toggleMobileMenu = () => {
             aria-title="Mobile Menu"
             @click="toggleMobileMenu"
           >
-            <Menu v-if="!isMobileMenuOpen" class="w-6 h-6" />
-            <X v-else class="w-6 h-6" />
+            <Menu class="w-6 h-6" />
           </StaticButton>
         </div>
       </div>
@@ -146,6 +145,7 @@ const toggleMobileMenu = () => {
               text-color="gray-700"
               size="small"
               rounded
+              cta
               @click="toggleMobileMenu"
             >
               <X class="w-6 h-6" />
@@ -156,7 +156,7 @@ const toggleMobileMenu = () => {
               <li v-for="item in navigation" :key="item.link">
                 <RouterLink
                   :to="item.link"
-                  class="text-gray-700 text-lg font-medium hover:text-blue-600 transition-colors duration-200"
+                  class="text-lg font-medium hover:text-blue-600 transition-colors duration-200"
                   exact-active-class="font-bold text-blue-700"
                   @click="toggleMobileMenu"
                 >

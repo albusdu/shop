@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { Shirt } from 'lucide-vue-next'
 import { RouterLink } from 'vue-router'
 </script>
 
@@ -20,16 +19,7 @@ import { RouterLink } from 'vue-router'
         experience possible.
       </p>
       <RouterLink to="/products">
-        <StaticButton
-          background-color="red"
-          text-color="white"
-          size="large"
-          rounded
-          class="hover:bg-red-700 transition-colors duration-200 flex items-center gap-2"
-        >
-          Shop Products
-          <Shirt class="w-6 h-6" />
-        </StaticButton>
+        <StaticButton size="large"> Shop now </StaticButton>
       </RouterLink>
     </div>
   </section>

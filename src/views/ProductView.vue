@@ -13,7 +13,7 @@ const cartStore = useCartStore()
 const { Alert } = useAlert()
 
 const { product, error, loading, fetchProduct } = useProduct()
-const quantity = ref(1)
+const quantity = ref<number>(1)
 
 onMounted(async () => {
   try {
