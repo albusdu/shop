@@ -21,6 +21,7 @@ const routes: Array<RouteRecordRaw> = [
         component: () => import('@/views/HomeView.vue'),
         meta: {
           title: 'Home - Ecwid App',
+          description: "Description about Ecwid App's home page",
         },
       },
       {
@@ -29,6 +30,7 @@ const routes: Array<RouteRecordRaw> = [
         component: () => import('@/views/AboutView.vue'),
         meta: {
           title: 'About - Ecwid App',
+          description: "Description about Ecwid App's about page",
         },
       },
     ],

@@ -10,6 +10,7 @@ interface ButtonWrapperProps {
   borderColor?: 'transparent' | 'blue' | 'red'
   size?: 'small' | 'medium' | 'large'
   rounded?: boolean
+  ariaTitle?: string
 }
 
 const props = defineProps<ButtonWrapperProps>()
@@ -84,7 +85,7 @@ const buttonClasses = getButtonClasses(props)
 </script>
 
 <template>
-  <button :class="buttonClasses" @click="handleClick">
+  <button :class="buttonClasses" @click="handleClick" :aria-label="ariaTitle">
     <slot></slot>
   </button>
 </template>

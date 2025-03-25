@@ -74,13 +74,18 @@ const toggleMobileMenu = () => {
 
       <div class="flex items-center gap-2 md:gap-4">
         <div v-for="button in actionButtons" :key="button.name" class="relative">
-          <RouterLink v-if="button.link && button.link.trim() !== ''" :to="button.link">
+          <RouterLink
+            v-if="button.link && button.link.trim() !== ''"
+            :to="button.link"
+            :aria-label="'Go to ' + button.name"
+          >
             <StaticButton
               background-color="transparent"
               text-color="gray-700"
               size="small"
               rounded
               class="hover:bg-gray-100 transition-colors duration-200"
+              :aria-title="button.name"
             >
               <component :is="button.icon" class="w-5 h-5 md:w-6 md:h-6" />
               <span
@@ -99,6 +104,7 @@ const toggleMobileMenu = () => {
             rounded
             cta
             class="hover:bg-gray-100 transition-colors duration-200"
+            :aria-title="button.name"
             @click="button.func && button.func()"
           >
             <component :is="button.icon" class="w-5 h-5 md:w-6 md:h-6" />
@@ -113,6 +119,7 @@ const toggleMobileMenu = () => {
             rounded
             cta
             class="hover:bg-gray-100 transition-colors duration-200"
+            aria-title="Mobile Menu"
             @click="toggleMobileMenu"
           >
             <Menu v-if="!isMobileMenuOpen" class="w-6 h-6" />
