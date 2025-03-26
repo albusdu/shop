@@ -1,6 +1,7 @@
 import type { CategoryResponse } from '@/types/categoryTypes'
 import api from './axios'
 import { ref } from 'vue'
+import { normalizeError } from '@/utils/formatString'
 
 export const useCategories = () => {
   const categories = ref<CategoryResponse | null>(null)
@@ -10,12 +11,12 @@ export const useCategories = () => {
   const fetchCategories = async (): Promise<[CategoryResponse | null, Error?]> => {
     try {
       loading.value = true
-      const res = await api.get('/categories')
+      const res = await api.get<CategoryResponse>('/categories')
       categories.value = res.data
       error.value = null
       return [res.data]
     } catch (err) {
-      error.value = err instanceof Error ? err : new Error(String(err))
+      error.value = normalizeError(err)
       return [null, error.value]
     } finally {
       loading.value = false

@@ -1,12 +1,14 @@
 <script setup lang="ts">
 import type { Product } from '@/types/productTypes'
 
-defineProps<{
+interface ProductsGridProps {
   products: Product[]
   error: Error | null
   loading: boolean
   hasTitle?: boolean
-}>()
+}
+
+defineProps<ProductsGridProps>()
 </script>
 
 <template>

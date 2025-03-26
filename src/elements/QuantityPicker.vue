@@ -27,19 +27,19 @@ watch(value, (newValue) => {
   emit('update:modelValue', clamp(newValue))
 })
 
-function clamp(val: number): number {
+const clamp = (val: number): number => {
   return Math.min(Math.max(val, min), max)
 }
 
-function increase() {
+const increase = () => {
   value.value = clamp(value.value + 1)
 }
 
-function decrease() {
+const decrease = () => {
   value.value = clamp(value.value - 1)
 }
 
-function handleInput(event: Event) {
+const handleInput = (event: Event) => {
   const target = event.target as HTMLInputElement
   const val = parseInt(target.value) || min
   value.value = clamp(val)

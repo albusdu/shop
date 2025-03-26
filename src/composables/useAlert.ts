@@ -11,7 +11,7 @@ interface Alert {
 
 const alerts: Ref<Alert[]> = ref([])
 
-export function useAlert() {
+export const useAlert = () => {
   const addAlert = (
     message: string,
     variant: 'success' | 'error' | 'warning' = 'success',

@@ -1,11 +1,13 @@
 <script setup lang="ts">
 import type { Category } from '@/types/categoryTypes'
 
-defineProps<{
+interface CategoriesListProps {
   categories: Category[]
   error: Error | null
   loading: boolean
-}>()
+}
+
+defineProps<CategoriesListProps>()
 </script>
 
 <template>

@@ -3,6 +3,7 @@ import api from './axios'
 
 import { getQueryString } from '@/utils/useQuery'
 import { computed, ref } from 'vue'
+import { normalizeError } from '@/utils/formatString'
 
 interface ProductQuery {
   category?: number
@@ -22,13 +23,13 @@ export const useProducts = () => {
   const fetchProducts = async (): Promise<[ProductResponse | null, Error?]> => {
     try {
       loading.value = true
-      const res = await api.get(`/products${queryString.value}`)
+      const res = await api.get<ProductResponse>(`/products${queryString.value}`)
       products.value = res.data
       error.value = null
       loading.value = false
       return [res.data]
     } catch (err) {
-      error.value = err instanceof Error ? err : new Error(String(err))
+      error.value = normalizeError(err)
       return [null, error.value]
     } finally {
       loading.value = false
@@ -57,12 +58,12 @@ export const useProduct = () => {
   const fetchProduct = async (id: number): Promise<[Product | null, Error?]> => {
     try {
       loading.value = true
-      const res = await api.get(`/products/${id}`)
+      const res = await api.get<Product>(`/products/${id}`)
       product.value = res.data
       error.value = null
       return [res.data]
     } catch (err) {
-      error.value = err instanceof Error ? err : new Error(String(err))
+      error.value = normalizeError(err)
       return [null, error.value]
     } finally {
       loading.value = false

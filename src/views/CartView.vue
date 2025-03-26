@@ -11,8 +11,7 @@ defineProps<{
 const cartStore = useCartStore()
 const { Alert } = useAlert()
 
-function checkout() {
-  // router.push('/checkout')
+const order = () => {
   Alert.success('Congratulations! Your purchase was successful!')
 }
 </script>
@@ -106,7 +105,7 @@ function checkout() {
             <span class="font-semibold text-gray-900">${{ cartStore.cartTotal }}</span>
           </div>
           <p class="text-sm text-gray-500 mt-1">Shipping calculated at checkout</p>
-          <StaticButton cta @click="checkout"> Proceed to Checkout </StaticButton>
+          <StaticButton cta @click="order"> Place Order </StaticButton>
         </div>
       </div>
     </div>

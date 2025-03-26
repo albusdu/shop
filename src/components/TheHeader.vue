@@ -42,7 +42,7 @@ const actionButtons = ref<ActionItem[]>([
   { name: 'Cart', link: '/products/cart', icon: ShoppingCart },
 ])
 
-const isMobileMenuOpen = ref(false)
+const isMobileMenuOpen = ref<boolean>(false)
 
 const toggleMobileMenu = () => {
   isMobileMenuOpen.value = !isMobileMenuOpen.value
@@ -81,7 +81,7 @@ const toggleMobileMenu = () => {
           >
             <StaticButton
               background-color="transparent"
-              text-color="gray-700"
+              text-color="gray"
               size="small"
               rounded
               class="hover:bg-gray-100 transition-colors duration-200"
@@ -99,7 +99,7 @@ const toggleMobileMenu = () => {
           <StaticButton
             v-else
             background-color="transparent"
-            text-color="gray-700"
+            text-color="gray"
             size="small"
             rounded
             cta
@@ -114,7 +114,7 @@ const toggleMobileMenu = () => {
         <div class="md:hidden">
           <StaticButton
             background-color="transparent"
-            text-color="gray-700"
+            text-color="gray"
             size="small"
             rounded
             cta
@@ -142,7 +142,7 @@ const toggleMobileMenu = () => {
           <div class="flex justify-end">
             <StaticButton
               background-color="transparent"
-              text-color="gray-700"
+              text-color="gray"
               size="small"
               rounded
               cta

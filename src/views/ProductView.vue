@@ -25,7 +25,7 @@ onMounted(async () => {
   }
 })
 
-function addToCart(product: Product) {
+const addToCart = (product: Product) => {
   cartStore.addItem(product, quantity.value)
   Alert.success('Product added to cart')
   quantity.value = 1
