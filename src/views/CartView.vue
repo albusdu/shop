@@ -38,12 +38,9 @@ const order = () => {
     <div v-else-if="cartStore.items.length === 0" class="max-w-4xl mx-auto text-center py-12">
       <h2 class="text-2xl font-bold text-gray-900">Your Cart is Empty</h2>
       <p class="mt-2 text-gray-600">Add some items to get started!</p>
-      <router-link
-        to="/products"
-        class="mt-4 inline-block px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
-      >
-        Shop Now
-      </router-link>
+      <RouterLink to="/products">
+        <StaticButton size="large"> Shop now </StaticButton>
+      </RouterLink>
     </div>
 
     <div v-else class="max-w-4xl mx-auto">
