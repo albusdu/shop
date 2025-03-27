@@ -1,6 +1,6 @@
 # shop
 
-I'm not in my best shape right now, but I'll be back at my peak soon.
+I'm not in my best shape right now, but I'll be back at my peak soon. I could have separated the components better, but I think it looks like I can do that.
 I had some ideas that I thought might work better, but I stuck to the instructions.
 [Demo](https://elaborate-kleicha-e66b8d.netlify.app/)
 
